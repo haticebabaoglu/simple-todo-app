@@ -3,8 +3,8 @@
 const AddTask = () => {
   return (
     <div>
-      todo list 
-      
+      <button>Add new task</button>
+
     </div>
   )
 }
