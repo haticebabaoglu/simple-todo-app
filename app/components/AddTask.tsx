@@ -3,7 +3,7 @@
 const AddTask = () => {
   return (
     <div>
-      <button>Add new task</button>
+      <button className="btn btn-primary w-full" >Add new task</button>
 
     </div>
   )
