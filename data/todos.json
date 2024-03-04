@@ -1,14 +1,8 @@
 {
-    "tasks" : [
-
-
-{
-    "id" : "1",
-    "text" : "buy milk"
-},
-{
-    "id" : "2",
-    "text" : "wash"
-}
-    ]
+  "tasks": [
+    {
+      "id": "ec4b20cc-2b23-441b-b9c9-066dde011ee5",
+      "text": "go to market"
+    }
+  ]
 }
