@@ -1,5 +1,4 @@
 "use client";
-
 import { AiOutlinePlus } from "react-icons/ai";
 import Modal from "./Modal";
 import { FormEventHandler, useState } from "react";
@@ -11,7 +10,7 @@ const AddTask = () => {
   const router = useRouter();
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [newTaskValue, setNewTaskValue] = useState<string>("");
-  const [showAlert, setShowAlert] = useState<boolean>(false);
+  const [showAlert, setShowAlert] = useState<boolean>(false); // State for showing alert
 
   const handleSubmitNewTodo: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
@@ -20,20 +19,15 @@ const AddTask = () => {
       setShowAlert(true);
       return;
     }
-
+    setNewTaskValue("");  
+    setModalOpen(false);
+    router.refresh();
+      
     await addTodo({
       id: uuidv4(),
       text: newTaskValue,
     });
-    setNewTaskValue("");
-    setModalOpen(false);
-    router.refresh();
-  };
-
- 
-  const handleInputChange = (e) => {
-    setNewTaskValue(e.target.value);
-    setShowAlert(false);
+   
   };
 
   return (
@@ -51,7 +45,10 @@ const AddTask = () => {
           <div className='modal-action'>
             <input
               value={newTaskValue}
-              onChange={handleInputChange} 
+              onChange={(e) => {
+                setNewTaskValue(e.target.value);
+                setShowAlert(false);
+              }}
               type='text'
               placeholder='Type here'
               className='input input-bordered w-full'
